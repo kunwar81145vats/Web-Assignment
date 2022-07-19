@@ -6,6 +6,9 @@ namespace Calculator.API.Controllers;
 [Route("[controller]")]
 public class WeatherForecastController : ControllerBase
 {
+
+    Calculator Calc = new Calculator();
+
     private static readonly string[] Summaries = new[]
     {
         "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
@@ -29,5 +32,15 @@ public class WeatherForecastController : ControllerBase
         })
         .ToArray();
     }
+
+
+    [Route("api/calc/add/{paramOne}/{paramTwo}")]
+
+    public float Get(float paramOne, float paramTwo)
+    {
+        return Calc.Calculate(paramOne, paramTwo, +);
+
+    }
+
 }
 
